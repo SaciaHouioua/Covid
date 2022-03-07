@@ -52,10 +52,15 @@ CREATE TABLE `Indicateurs` (
 CREATE TABLE `Pollution` (
   `dep` varchar(5),
   `identifiant` varchar(12),
+  `nom_etablissement` varchar(150),
   `annee_emission` varchar(4),
-  `milieu` varchar(30),
   `polluant` varchar(200),
   `quantite` double,
+  `numero_siret` varchar(16),
+  `commune` varchar(150),
+  `coordonnees_x` double,
+  `coordonnees_Y` double,
+  `libelle_ape` varchar(150),
   `polluant_id` int8
   #PRIMARY KEY (`identifiant`, `dep`,`polluant_id`)
 	);
@@ -63,25 +68,11 @@ CREATE TABLE `Pollution` (
 #supprimer Etablissements si elle existe
 drop table Etablissements ;
     
-CREATE TABLE `Etablissements` (
-  `dep` varchar(5),
-  `identifiant` varchar(12),
-  `nom_etablissement` varchar(150),
-  `numero_siret` varchar(16),
-  `coordonnees_x` double,
-  `coordonnees_Y` double
-  #PRIMARY KEY (`identifiant`)
-	);
+
     
 CREATE TABLE `Polluer_dep_etab` (
  `dep` varchar(5),
  `identifiant` varchar(12)
 );
 
-CREATE TABLe `Rejeter_poll_etab`(
-`dep` varchar(5),
-`identifiant` varchar(12),
- `annee_emission` varchar(4),
- `polluant_id` int8 
-);
 
